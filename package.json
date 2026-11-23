@@ -1,0 +1,75 @@
+{
+  "name": "dsh-free-pane",
+  "version": "0.10.20-alpha.1",
+  "private": false,
+  "type": "module",
+  "description": "Free-pane grid workspace: tile conversations, web pages, terminals, folders and Git inside DeepSeek Harness.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "grid",
+    "workspace",
+    "tiling"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArticulusTemporis/dsh-free-pane.git"
+  },
+  "homepage": "https://github.com/ArticulusTemporis/dsh-free-pane#readme",
+  "bugs": {
+    "url": "https://github.com/ArticulusTemporis/dsh-free-pane/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "COMPATIBILITY.md",
+    "skills/*/SKILL.md",
+    "docs/*.md",
+    "docs/*.png",
+    "scripts/*.mjs",
+    "compat/*.mjs",
+    "compat/README.md",
+    "compat/versions.json",
+    "show/*.png",
+    "RELEASE-NOTES-0.10.20-alpha.1.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "scripts": {
+    "preflight": "node scripts/preflight.mjs",
+    "pack": "npm run preflight && npm pack --pack-destination dist",
+    "compat": "node compat/run.mjs"
+  },
+  "engines": {
+    "dsh": ">=0.2.2-rc.5 <0.3.0",
+    "node": ">=22.19.0"
+  },
+  "publishConfig": {
+    "tag": "alpha"
+  }
+}

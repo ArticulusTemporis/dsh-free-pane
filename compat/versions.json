@@ -1,0 +1,4 @@
+{
+  "latest": "0.2.2-rc.5",
+  "note": "Only the current latest DSH is exercised. Update this pin only after the harness passes on the new version."
+}
